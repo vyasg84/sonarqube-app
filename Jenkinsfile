@@ -2,13 +2,15 @@ pipeline {
     agent any
 
     stages {
-        stage('Hello') {
+        stage('Build') {
             steps {
-                echo 'Hello Gaurav'
-         }
+                echo 'Hello, This is a Docker image build step'
+                git branch: 'main', url: 'https://github.com/vyasg84/docker_python_jenkins'
+                sh "docker build -t jenkins-python-demo ."
+           }
         }    
     
-        stage('Build') {
+        stage('Push') {
             steps {
                 echo 'Building'
          }
