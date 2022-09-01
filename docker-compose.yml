@@ -1,0 +1,7 @@
+version: "3.9"
+services:
+  web:
+  # search & build the image from dockerfile in PWD
+    build: .
+    ports:
+      - "8000:8000"
