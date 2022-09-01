@@ -11,7 +11,7 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Hello, This is a Docker image build step'
-                git branch: 'main', url: 'https://github.com/vyasg84/docker_python_jenkins'
+               // git branch: 'main', url: 'https://github.com/vyasg84/docker_python_jenkins'
                 sh 'docker build -t vyasg84/jenkins-python-demo:1.0 .'
            }
         }    
