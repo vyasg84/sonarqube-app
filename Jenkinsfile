@@ -1,11 +1,7 @@
 pipeline {
     agent any
-    tools{
-        maven 'MavenTest'
-       
-     }
-     environment{
-        dockerhub=credentials('dockerhub')
+    environment {
+		DOCKERHUB_CREDENTIALS=credentials('dockerhub-cred-vyasg')
     }
     stages {
         stage('Build') {
@@ -16,17 +12,17 @@ pipeline {
            }
         }    
     
-        stage('Push') {
+        stage('Login') {
             steps {
-                sh 'docker -t vyasg84/jenkins-python-demo:1.0 vyasg84/jenkins-python-demo:1.0'
-                sh 'echo $dockerhub_PSW | docker login -u $dockerhub_USR --password-stdin'
-                sh 'docker push vyasg84/jenkins-python-demo:1.0'
+                sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
+                
          }
         }    
     
-        stage('Test') {
+        stage('Push') {
             steps {
-                echo 'Testing'
+                  sh 'docker push vyasg84/jenkins-python-demo:1.0'
+
          }
         }    
     
@@ -36,4 +32,9 @@ pipeline {
          }
         }    
     }
+    post {
+		always {
+			sh 'docker logout'
+		}
+	}
 }
