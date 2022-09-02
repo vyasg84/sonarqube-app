@@ -29,8 +29,9 @@ pipeline {
 	 stage('Deploy to DIGITAL OCEAN'){
 	    steps{
 	  	 sshagent(['digital-ocean-server']){
-	   	 sh '''ssh -o StrictHostKeyChecking=no root@165.22.208.179 
-		        sh "chmod +x -R ./production.sh" && sh "./production.sh" '''
+	   	 sh "ssh -o StrictHostKeyChecking=no root@165.22.208.179"
+	         sh "chmod +x ./production.sh" 
+	         sh "./production.sh"
 		 }
 	  }
       }
