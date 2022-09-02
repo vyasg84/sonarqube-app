@@ -30,7 +30,7 @@ pipeline {
 	    steps{
 	  	 sshagent(['digital-ocean-server']){
 	   	 sh '''ssh -o StrictHostKeyChecking=no root@165.22.208.179 
-		        sh "chmod +x -R ./pipeline.sh" && sh "./production.sh" '''
+		        sh "chmod +x -R ./production.sh" && sh "./production.sh" '''
 		 }
 	  }
       }
