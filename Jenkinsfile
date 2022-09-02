@@ -21,6 +21,7 @@ pipeline {
     
         stage('Push') {
             steps {
+		    echo "Pushing Image to Docker Hub...."
                   sh 'docker push vyasg84/jenkins-python-demo:1.0'
 
          }
@@ -28,6 +29,7 @@ pipeline {
     
 	 stage('Deploy to DIGITAL OCEAN'){
 	    steps{
+		 echo "Connecting to server...."
 	  	 sshagent(['digital-ocean-server']){
 	   	 sh "ssh -o StrictHostKeyChecking=no root@165.22.208.179"
 	         sh "chmod +x ./production.sh" 
