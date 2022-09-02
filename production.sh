@@ -10,4 +10,6 @@ docker pull vyasg84/jenkins-python-demo:1.0
 echo "Removing existing container on server"
 docker rm -f docker_python_jenkins
 echo "Creating container on server"
-docker run -it -d --name docker_python_jenkins vyasg84/jenkins-python-demo:1.0 bash
+sudo docker run vyasg84/jenkins-python-demo:1.0
+echo "Running container on server"
+docker ps -a
