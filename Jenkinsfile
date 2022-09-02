@@ -26,11 +26,15 @@ pipeline {
          }
         }    
     
-        stage('Deploy') {
-            steps {
-                echo 'Deploying'
-         }
-        }    
+	 stage('Deploy to DIGITAL OCEAN'){
+	    steps{
+	  	 sshagent(['SSH-DIGITAL-OCEAN']){
+	   	 sh '''
+	   	 ssh -o StrictHostKeyChecking=no root@165.22.208.179 ls '''
+	   }
+	  }
+      }
+	   
     }
     post {
 		always {
