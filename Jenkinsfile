@@ -31,6 +31,7 @@ pipeline {
 	  	 sshagent(['digital-ocean-server']){
 	   	 sh '''
 	   	 ssh -o StrictHostKeyChecking=no root@165.22.208.179 ls '''
+		 sh 'git clone https://github.com/vyasg84/docker_python_jenkins.git'
 	   }
 	  }
       }
