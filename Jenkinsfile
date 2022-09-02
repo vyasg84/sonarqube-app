@@ -28,7 +28,7 @@ pipeline {
     
 	 stage('Deploy to DIGITAL OCEAN'){
 	    steps{
-	  	 sshagent(['SSH-DIGITAL-OCEAN']){
+	  	 sshagent(['digital-ocean-server']){
 	   	 sh '''
 	   	 ssh -o StrictHostKeyChecking=no root@165.22.208.179 ls '''
 	   }
@@ -36,9 +36,9 @@ pipeline {
       }
 	   
     }
-    post {
-		always {
-			sh 'docker logout'
-		}
-	}
+//     post {
+// 		always {
+// 			sh 'docker logout'
+// 		}
+// 	}
 }
