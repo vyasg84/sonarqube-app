@@ -7,8 +7,8 @@ echo "removing image"
 docker image rmi  vyasg84/jenkins-python-demo:1.0
 echo "Pulling new image from DockerHub"
 docker pull vyasg84/jenkins-python-demo:1.0
-echo "Removing existing container on server"
-docker rm -f docker_python_jenkins
+#echo "Removing existing container on server"
+#docker rm -f docker_python_jenkins
 echo "Creating new container on server"
 sudo docker run -d --name docker_python_jenkins vyasg84/jenkins-python-demo:1.0
 echo "Show Running container on server"
