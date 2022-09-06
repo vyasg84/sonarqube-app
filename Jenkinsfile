@@ -8,7 +8,7 @@ pipeline {
 
         environment {
 
-            scannerHome = tool 'Sonar Scanner'
+            scannerHome = tool 'SonarQube Scanner 2.8'
 
         }
 
