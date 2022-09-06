@@ -16,7 +16,7 @@ pipeline {
 
             withSonarQubeEnv('SonarQube') {
 
-                sh "${tool("Sonar Scanner")}/bin/sonar-scanner \
+                sh '''${tool("Sonar Scanner")}/bin/sonar-scanner \
 
              -Dsonar.projectKey=task2-jenkins-sonarqube \
 
@@ -24,7 +24,7 @@ pipeline {
 
              -Dsonar.host.url=http://localhost:9000 \
 
-             -Dsonar.login=7118946469f544feb8f50a6f3fca8c8f36de1cdf"
+             -Dsonar.login=7118946469f544feb8f50a6f3fca8c8f36de1cdf'''
 
             }
 
